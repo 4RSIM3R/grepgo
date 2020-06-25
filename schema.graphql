@@ -1,0 +1,42 @@
+type Dawuh {
+  id: ID!
+  dawuh: String!
+  qoil: String!
+  author: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  password: String
+}
+
+type Query {
+  dawuh: [Dawuh!]!
+}
+
+input NewDawuh {
+  dawuh: String!
+  qoil: String!
+}
+
+input RefreshTokenInput{
+  token: String!
+}
+
+input NewUser {
+  username: String!
+  password: String!
+}
+
+input Login {
+  username: String!
+  password: String!
+}
+
+type Mutation {
+  createDawuh(input: NewDawuh!): Dawuh!
+  createUser(input: NewUser!): String!
+  login(input: Login!): String!
+  refreshToken(input: RefreshTokenInput!): String!
+}
